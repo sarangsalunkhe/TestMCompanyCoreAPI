@@ -69,7 +69,6 @@ namespace TestMCompanyCoreAPI.Models
 
                 entity.Property(e => e.EmailId).HasMaxLength(50);
 
-                entity.Property(e => e.Logo).HasColumnType("image");
 
                 entity.Property(e => e.Panno)
                     .HasMaxLength(50)

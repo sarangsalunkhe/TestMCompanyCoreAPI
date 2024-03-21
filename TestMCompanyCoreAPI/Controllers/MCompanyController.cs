@@ -22,5 +22,25 @@ namespace TestMCompanyCoreAPI.Controllers
             var data = await _context.Mcompanies.ToListAsync();
             return Ok(data);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Mcompany>> GetDataById(int id)
+        {
+            var data=new Mcompany();
+            data = await _context.Mcompanies.FirstOrDefaultAsync(m=>m.CompanyId==id);
+           if(data==null)
+            {
+                return NotFound();
+            }
+            return data;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Mcompany>>SaveData(Mcompany model)
+        {
+            await _context.Mcompanies.AddAsync(model);
+            await _context.SaveChangesAsync();
+            return Ok(model);
+        }
     }
 }

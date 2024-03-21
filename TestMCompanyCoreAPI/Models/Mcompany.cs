@@ -15,7 +15,6 @@ namespace TestMCompanyCoreAPI.Models
         public string? Panno { get; set; }
         public string? Cst { get; set; }
         public string? Bst { get; set; }
-        public byte[]? Logo { get; set; }
         public string? AcFlag { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedOn { get; set; }
