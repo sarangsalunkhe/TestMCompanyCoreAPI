@@ -42,5 +42,33 @@ namespace TestMCompanyCoreAPI.Controllers
             await _context.SaveChangesAsync();
             return Ok(model);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<Mcompany>>UpdateData(int id,Mcompany model)
+        {
+            if(id!=model.CompanyId)
+            {
+                return BadRequest();
+            }
+            _context.Entry(model).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return Ok(model);
+
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<Mcompany>>DeleteData(int id)
+        {
+            var data = await _context.Mcompanies.FirstOrDefaultAsync(m => m.CompanyId == id); ;    
+            if(data==null)
+            {
+                return NotFound();
+            }
+            _context.Mcompanies.Remove(data);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+            
+
     }
 }

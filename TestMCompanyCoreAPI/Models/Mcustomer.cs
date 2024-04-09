@@ -31,6 +31,6 @@ namespace TestMCompanyCoreAPI.Models
         public string BranchName { get; set; } = null!;
         public string BankAddress { get; set; } = null!;
 
-        public virtual Muser? CreatedByNavigation { get; set; }
+      //  public virtual Muser? CreatedByNavigation { get; set; }
     }
 }
